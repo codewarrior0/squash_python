@@ -1,0 +1,8 @@
+*.py[co]
+doc/_build
+
+.idea
+ENV
+squash_python.egg-info
+build
+dist
