@@ -87,41 +87,53 @@ The following attributes are available:
 
 `host`:
   **Required.** The host on which Squash is running. e.g. "https://squash.example.com:3000"
+  
 `APIKey`:
   **Required.** The API key of the project that exceptions will be associated with.
   This configuration option is required. The value can be found by going to the
   project's home page on Squash.
+
 `environment`:
   **Required.** The environment that exceptions will be associated with.
   This should be a string such as "development", "testing", or "production"
+
 `revision`:
   **Required.** The revision of the Git repository that was compiled to make this
   build. This ought to be a commit's SHA-1 hash, but
   any commit-ish that can identify a revision is accepted.
+
 `build`:
   For released apps, the machine-readable build number or build identifer that matches the revision.
+
 `version`:
   For released apps, the human-readable version number.
+
 `disabled`:
   If `YES`, the Squash client will not report any errors.
+
 `notifyPath`:
   The path to post new exception notifications to. By default it's
   set to `/api/1.0/notify`.
+
 `timeout`:
   The amount of time to wait before giving up on transmitting an
   error. By default it's 15 seconds.
+
 `ignoredExceptions`:
   A set of `Exception` names or `Exception` subclasses that
   will not be reported to Squash.
+
 `handledSignals`:
   A set of signals (represented as a list of integers) that Squash
   will trap. By default it's `SIGABRT`, `SIGBUS`, `SIGFPE`, `SIGILL`, `SIGSEGV`,
   and `SIGTRAP`. (On win32, `SIGBUS` and `SIGTRAP` are not available; see :mod:`signal`)
+
 `filterStrings`:
   Strings to remove from the exception's message.
   These keys might contain sensitive or personal information, for
   example. In addition, the location of the user's home folder is
   removed and replaced with ~
+
 `args`:
   Dictionary of additional keys and values to add to each reported occurrence.
 
