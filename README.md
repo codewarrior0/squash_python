@@ -10,8 +10,8 @@ Documentation
 
 Comprehensive documentation is written in ReST-formatted comments
 throughout the source. To view this documentation as an HTML site, run sphinx
-with `(cd doc; make html)`. If sphinx is not installed, run `pip install sphinx`.
-The starting HTML file is at `doc/_build/html/index.html`.
+with ``(cd doc; make html)``. If sphinx is not installed, run ``pip install sphinx``.
+The starting HTML file is at ``doc/_build/html/index.html``.
 
 For an overview of the various components of Squash, see the website
 documentation at https://github.com/SquareSquash/web.
@@ -34,7 +34,7 @@ Requires `argparse` on certain older Python versions; see **Compatibility** abov
 Usage
 -----
 
-Unpack the source distribution, then run `python setup.py install` to
+Unpack the source distribution, then run ``python setup.py install`` to
 install squash_python into your site-packages folder. Consider using
 `virtualenv` beforehand to install it into a site-packages folder
 specific to your project instead of the system-wide folder
@@ -52,7 +52,7 @@ startup, such as your app's `main` function::
     client.reportErrors()
     client.hook()
 
-.. tip: Use `git rev-parse` to translate a commit-ish (such as a branch or tag name)
+.. tip: Use ``git rev-parse`` to translate a commit-ish (such as a branch or tag name)
         into a commit ID for the `revision` field.
 
 The `reportErrors` method loads any errors recorded from previous crashes and
@@ -87,7 +87,7 @@ The following attributes are available:
 
 `host`:
   **Required.** The host on which Squash is running. e.g. "https://squash.example.com:3000"
-  
+
 `APIKey`:
   **Required.** The API key of the project that exceptions will be associated with.
   This configuration option is required. The value can be found by going to the
@@ -99,8 +99,7 @@ The following attributes are available:
 
 `revision`:
   **Required.** The revision of the Git repository that was compiled to make this
-  build. This ought to be a commit's SHA-1 hash, but
-  any commit-ish that can identify a revision is accepted.
+  build. This ought to be a commit ID (for git, a SHA-1 hash).
 
 `build`:
   For released apps, the machine-readable build number or build identifer that matches the revision.
@@ -140,20 +139,20 @@ The following attributes are available:
 Command-Line Utilities
 ----------------------
 
-The `squash_python` module also installs two command line scripts called `squash_release`
-and `squash_tester`.
+The ``squash_python`` module also installs two command line scripts called ``squash_release``
+and ``squash_tester``.
 
-You *must* use `squash_release` to notify Squash of a new deployment. Run `squash_release` to
+You *must* use ``squash_release`` to notify Squash of a new deployment. Run ``squash_release`` to
 have it print its usage information.
 
-You can use `squash_tester` to test your Squash integration, or as a template to integrating
-Squash into your own project. The easiest way to use `squash_tester` is to
+You can use ``squash_tester`` to test your Squash integration, or as a template to integrating
+Squash into your own project. The easiest way to use ``squash_tester`` is to
 run the Squash web server locally on port 3000, and set the environment variable
-`SQUASH_TESTER_API_KEY` to the API key of a project you create in your local web
-server. Once that is done, you may run `squash_tester` to report an uncaught exception, or
-run `squash_tester signal` to report an unhandled signal.
+``SQUASH_TESTER_API_KEY`` to the API key of a project you create in your local web
+server. Once that is done, you may run ``squash_tester`` to report an uncaught exception, or
+run `squash_tester -s` to report an unhandled signal.
 
-If the server is running elsewhere, you may set the environment variable SQUASH_TESTER_HOST
+If the server is running elsewhere, you may set the environment variable ``SQUASH_TESTER_HOST``
  to the method, host and port of the server (e.g. "https://squash.example.com:3000")
 
 
