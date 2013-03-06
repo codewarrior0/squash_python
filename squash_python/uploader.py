@@ -22,6 +22,11 @@ class SquashUploader(object):
         self.host = host
         self.timeout = timeout
 
+    headers = { "Content-type": "application/json" ,
+                "Content-encoding": "utf-8",
+                "Accept-encoding": "utf-8",
+                }
+    
     def transmit(self, location, args):
         """
         Convert the dictionary `args` into a json string and POST it to `location`. Raise `urllib2.HTTPError` if
@@ -40,12 +45,9 @@ class SquashUploader(object):
         args['utf8'] = '\u2713'
 
         data = json.dumps(args)
-        headers = { "Content-type": "application/json" ,
-                    "Content-encoding": "utf-8",
-                    "Accept-encoding": "utf-8",
-                    }
 
-        req = urlrequest.Request(self.host + location, data, headers)
+
+        req = urlrequest.Request(self.host + location, data, self.headers)
 
         if self.timeout:
             response = urlrequest.urlopen(req, None, self.timeout)
