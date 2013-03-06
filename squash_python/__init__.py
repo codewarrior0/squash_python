@@ -386,9 +386,9 @@ class SquashClient(object):
                     log.warn("Error: 403 Forbidden (Server refused API key). Aborting.")
                     break
                 elif e.code == 422: # Something wrong with JSON data
-                    log.warn("Error: 422 Unprocessable Entity (See Squash server error logs, exception UUID is %(UUID)s)", kw=args)
+                    log.warn("Error: 422 Unprocessable Entity (See Squash server error logs, exception UUID is %s)", args['UUID'])
                 else: # 500 Internal Server Error
-                    log.warn("Error: %s (UUID %(UUID)s", e, kw=args)
+                    log.warn("Error: %s (UUID %s)", e, args['UUID'])
                     log.warn("Data: \n%s\n", e.fp.read())
 
             except urlerror.URLError as e:
