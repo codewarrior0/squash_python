@@ -68,7 +68,7 @@ A third method `recordException` can be used to report non-fatal exceptions
 caught by your application. Its arguments are the same as those provided by `sys.exc_info`
 and accepted by `sys.excepthook`. Typical usage::
 
-    client.reportException(*sys.exc_info())
+    client.recordException(*sys.exc_info())
 
 Configuration
 -------------
